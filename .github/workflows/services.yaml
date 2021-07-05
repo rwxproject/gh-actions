@@ -1,0 +1,21 @@
+name: Containers
+on: push 
+
+jobs:
+  node_docker:
+    runs-on: ubuntu-latest
+    services:
+      app:
+        image: rwxproject/simple-docker-nodejs-api
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
+    steps:
+      - name: POST a user
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\":\"hello\", \"address\":\"abc\"}'"
+
+
+          
