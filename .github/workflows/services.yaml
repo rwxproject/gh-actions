@@ -22,7 +22,7 @@ jobs:
       - name: run script
         uses: docker://alpine:3.10
         with:
-          entrypoint: ./scripts.sh
+          entrypoint: ./script.sh
           args: "aaa"
 
           
